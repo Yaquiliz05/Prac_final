@@ -1,0 +1,19 @@
+CREATE DATABASE Examen_Final;
+
+USE Examen_Final;
+
+CREATE TABLE Usuarios(
+	id INT PRIMARY KEY IDENTITY(1,1),
+	nombre VARCHAR(100) NOT NULL,
+	usuario VARCHAR(50) NOT NULL UNIQUE,
+	passwd	VARCHAR(200) NOT NULL
+);
+
+CREATE TABLE Escritores(
+	id INT PRIMARY KEY IDENTITY(1,1),
+	nombre VARCHAR(100) NOT NULL,
+	alias VARCHAR(100) NOT NULL,
+	fechaNacimiento DATE NOT NULL,
+	img VARBINARY(max) NOT NULL,
+	biografia VARCHAR(250) NOT NULL
+);

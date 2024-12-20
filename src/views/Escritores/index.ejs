@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Escritores</title>
+</head>
+<body>
+  <h1>Listando Escritores</h1>
+  <table border>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Alias</th>
+        <th>Fecha de nacimiento</th>
+        <th>Biografía</th>
+        <th>Imagen</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(let i = 0; i < escritores.length; i++) { %>
+        <tr>
+          <td><%= escritores[i].id %></td>
+          <td><%= escritores[i].nombre %></td>
+          <td><%= escritores[i].alias %></td>
+          <td><%= escritores[i].fechaNacimiento %></td>
+          <td><%= escritores[i].biografia %></td>
+          <td>
+            <% if (escritores[i].img) { %>
+              <img src="data:image/png;base64,<%= escritores[i].img.toString('base64') %>" 
+                   alt="<%= escritores[i].alias %>" 
+                   style="max-width: 100px; height: auto;">
+            <% } else { %>
+              <p>Sin imagen</p>
+            <% } %>
+          </td>
+          <td>
+            <a href="/escritores/editar/<%= escritores[i].id %>">Editar</a>  
+            <form action="/escritores/delete/<%= escritores[i].id %>" method="post" style="display: inline;">
+              <button type="submit">Eliminar</button>
+            </form> 
+          </td>
+        </tr>  
+      <% } %>
+    </tbody>
+  </table>
+  <a href="/escritores/crear">(+) CREAR NUEVO ESCRITOR</a>
+</body>
+</html>

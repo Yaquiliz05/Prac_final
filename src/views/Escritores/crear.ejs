@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Crear nuevo autor</h1>
+  <form action="/escritores/crear" method="post">
+    <div>
+      <label for="nombre">Nombre</label>
+      <input type="text" name="nombre" id="nombre">
+    </div>
+    <div>
+      <label for="alias">Alias</label>
+      <input type="text" name="alias" id="alias">
+    </div>
+    <div>
+      <label for="fechaNacimiento">Fecha de nacimiento</label>
+      <input type="date" name="fechaNacimiento" id="fechaNacimiento">
+    </div>
+    <div>
+        <label for="biografia">Biografía</label>
+        <textarea name="biografia" id="biografia" required></textarea>
+      </div>
+      <div>
+        <label for="img">Imagen</label>
+        <input type="file" name="img" id="img" accept="image/*">
+      </div>
+      
+    <div>
+      <button type="submit">Crear</button>
+    </div>
+  </form>
+</body>
+</html>

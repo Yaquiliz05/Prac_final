@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Editar autor <%= autor.alias %></h1>
+  <form action="/escritores/editar" method="post">
+    <input readonly hidden type="text" name="id" id="id" value="<%=autor.id%>" />
+    <div>
+      <label for="nombre">Nombre</label>
+      <input type="text" name="nombre" id="nombre" value="<%=autor.nombre%>">
+    </div>
+    <div>
+      <label for="alias">Alias</label>
+      <input value="<%=autor.alias%>" type="text" name="alias" id="alias">
+    </div>
+    <div>
+      <label for="fechaNacimiento">Fecha de nacimiento</label>
+      <input value="<%=fechaFormateada%>" type="date" name="fechaNacimiento" id="fechaNacimiento">
+    </div>
+    <div>
+        <label for="biografia">Biografía</label>
+        <textarea name="biografia" id="biografia" rows="4" required><%= escritor.biografia %></textarea>
+      </div>
+    <div>
+        <label>Imagen actual:</label>
+        <% if (escritor.img) { %>
+          <img src="data:image/png;base64,<%= escritor.img.toString('base64') %>" alt="<%= escritor.alias %>" style="max-width: 150px; display: block;">
+        <% } else { %>
+          <p>No hay imagen cargada.</p>
+        <% } %>
+    </div>
+    <div>
+      <button type="submit">Guardar</button>
+    </div>
+  </form>
+</body>
+</html>
